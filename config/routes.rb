@@ -14,8 +14,15 @@ Rails.application.routes.draw do
   # create task
   get "/tasks/new", to: "tasks#new", as: :new_task
   # send to server
-  post "/tasks", to: "tasks#create", as: :create_task
+  post "/tasks/new", to: "tasks#create"
 
   # read one
   get "/tasks/:id", to: "tasks#show", as: :task
+
+  # update one
+  get "/tasks/:id/edit", to: "tasks#edit", as: :edit
+  post "/tasks/:id/edit", to: "tasks#update"
+
+  # destroy
+  delete "/tasks/:id", to: "tasks#destroy"
 end
